@@ -1,0 +1,176 @@
+$mtp-orange: #ea5b0c;
+
+* {
+  font-family: Lato, sans-serif;
+  scroll-behavior: smooth;
+}
+
+:target {
+  display: block;
+  position: relative;
+  top: -60px;
+  visibility: hidden;
+}
+
+footer {
+  padding: 12px;
+}
+
+body {
+  padding-top: 64px;
+}
+
+.section-container {
+  padding-top: 60px;
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 60px;
+  background: $mtp-orange;
+}
+
+.social-channel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 16px;
+}
+
+.social-channel > a {
+  display: flex;
+}
+
+.social-icon {
+  margin-right: 16px;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+header {
+  height: 60px;
+  width: 100%;
+  background: white;
+  color: $mtp-orange;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+.carousel-item {
+  height: 80%;
+}
+
+#sponsor-carousel {
+  margin-top: 32px;
+}
+
+.carousel-item > a {
+  text-decoration: none;
+  border: none;
+}
+
+.carousel-item > a img:hover {
+  margin-left: -16px;
+}
+
+.carousel-item > a:active img {
+  margin-left: -16px;
+}
+
+.carousel-item > a:focus img{
+  margin-left: -16px;
+}
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center
+}
+
+.navigation > a, a:hover, a:focus, a:active {
+  color: $mtp-orange;
+  margin-left: 16px;
+  margin-right: 16px;
+  text-decoration: none;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 9;
+}
+
+.title-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  padding: 1em;
+}
+
+.title-left > img {
+  height: 60px;
+  width: auto;
+  margin-right: 16px;
+}
+
+section {
+  min-height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  display: flex !important;
+  justify-content: center;
+  padding: 3em;
+}
+
+.section-content {
+  width: 60%;
+}
+
+section:nth-of-type(odd) {
+  background: $mtp-orange;
+  color: white;
+}
+
+section:nth-of-type(even) {
+  background: white;
+  color: $mtp-orange;
+}
+
+footer {
+  background-color: $mtp-orange;
+}
+
+#app-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .navigation {
+    display: none;
+  }
+
+  .section-content {
+    width: 100%;
+  }
+
+  section {
+    height: 100%;
+    min-height: 100%;
+    padding: 2em;
+  }
+
+  .social-grid {
+    grid-template-columns: 100%;
+  }
+}

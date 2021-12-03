@@ -1,0 +1,9 @@
+<div class="sponsor-container">
+  <div class="sponsor" *ngFor="let sponsor of sponsors">
+    <a href="{{sponsor.link}}" target="_blank">
+      <img src="{{'https://strapi-l8cn-f0jv.onrender.com' + sponsor.logo.url}}" width="100%" height="auto">
+    </a>
+    <h5>{{sponsor.name}}</h5>
+    <p>{{sponsor.description}}</p>
+  </div>
+</div>

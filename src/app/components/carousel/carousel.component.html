@@ -1,0 +1,10 @@
+<div id="slideshow" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li *ngFor="let image of images; let i = index" data-target="#slideshow" [attr.data-slide-to]="i" [class.active]="i === 0"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div *ngFor="let image of images; let i = index" class="carousel-item" [class.active]="i === 0">
+      <img [src]="prependUrl(image)" class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div>
