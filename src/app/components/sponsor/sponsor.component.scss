@@ -6,6 +6,7 @@
 img {
   height: 30%;
   width: auto;
+  padding-bottom: 8px;
 }
 
 .sponsor-container {
@@ -15,8 +16,12 @@ img {
 }
 
 @media screen and (max-width:960px) {
-  sponsor {
+  .sponsor {
     width: 100%;
+  }
+
+  .sponsor-container {
+    flex-direction: column;
   }
 
   img {
