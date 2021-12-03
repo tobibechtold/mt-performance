@@ -1,0 +1,15 @@
+.sponsor {
+  width: 40%;
+  margin: 8px;
+}
+
+img {
+  height: 30%;
+  width: auto;
+}
+
+.sponsor-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
