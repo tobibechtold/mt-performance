@@ -13,3 +13,14 @@ img {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+@media screen and (max-width:960px) {
+  sponsor {
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
