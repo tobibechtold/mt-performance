@@ -2,7 +2,7 @@
   <img class="card-img-top" src="{{'https://strapi-l8cn-f0jv.onrender.com' + article.image.url }}">
   <div class="card-body">
     <h5 class="card-title">{{article.title}}</h5>
-    <p class="card-text">{{content}}</p>
+    <p class="card-text" [innerHTML]="content | markdown"></p>
     <div class="show-more" (click)="showMore()">Weiterlesen...</div>
   </div>
 </div>

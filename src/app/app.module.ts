@@ -11,6 +11,7 @@ import { DriverComponent } from './components/driver/driver.component';
 import { DriversComponent } from './components/drivers/drivers.component';
 import { SponsorComponent } from './components/sponsor/sponsor.component';
 import { SocialComponent } from './components/social/social.component';
+import { MarkdownPipe } from './pipes/markdown.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SocialComponent } from './components/social/social.component';
     DriverComponent,
     DriversComponent,
     SponsorComponent,
-    SocialComponent
+    SocialComponent,
+    MarkdownPipe
   ],
   imports: [
     BrowserModule,
