@@ -1,0 +1,21 @@
+.social-channel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 16px;
+}
+
+.social-channel > a {
+  display: flex;
+  color: white;
+}
+
+.social-icon {
+  margin-right: 16px;
+  color: white;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}

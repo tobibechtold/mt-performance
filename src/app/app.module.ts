@@ -10,6 +10,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { DriverComponent } from './components/driver/driver.component';
 import { DriversComponent } from './components/drivers/drivers.component';
 import { SponsorComponent } from './components/sponsor/sponsor.component';
+import { SocialComponent } from './components/social/social.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SponsorComponent } from './components/sponsor/sponsor.component';
     CarouselComponent,
     DriverComponent,
     DriversComponent,
-    SponsorComponent
+    SponsorComponent,
+    SocialComponent
   ],
   imports: [
     BrowserModule,

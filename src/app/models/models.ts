@@ -30,6 +30,13 @@ export interface Driver {
   image: Image;
 }
 
+export interface Social {
+  id: number;
+  title: string;
+  link: string;
+  channel: string;
+}
+
 export interface Sponsor {
   id: number;
   name: string;
