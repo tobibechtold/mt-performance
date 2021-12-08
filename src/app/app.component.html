@@ -18,7 +18,7 @@
   <section>
     <div class="section-content">
       <app-carousel></app-carousel>
-      <p *ngIf="homepageData">{{this.homepageData.welcomeText}}</p>
+      <p *ngIf="homepageData" [innerHTML]="this.homepageData.welcomeText | markdown"></p>
     </div>
   </section>
   <a id="news"></a>
@@ -32,7 +32,7 @@
   <section>
     <div class="section-content">
       <h1 class="display-4">Das Team</h1>
-      <p *ngIf="homepageData">{{this.homepageData.driverText}}</p>
+      <p *ngIf="homepageData" [innerHTML]="this.homepageData.driverText | markdown"></p>
       <app-drivers></app-drivers>
     </div>
   </section>
@@ -40,7 +40,7 @@
   <section>
     <div class="section-content">
       <h1 class="display-4">Sponsoren</h1>
-      <p *ngIf="homepageData">{{this.homepageData.sponsor}}</p>
+      <p *ngIf="homepageData" [innerHTML]="this.homepageData.sponsor | markdown"></p>
       <app-sponsor></app-sponsor>
     </div>
   </section>
@@ -48,7 +48,7 @@
   <section>
     <div class="section-content">
       <h1 class="display-4">Social</h1>
-      <p *ngIf="homepageData">{{this.homepageData.socialText}}</p>
+      <p *ngIf="homepageData" [innerHTML]="this.homepageData.socialText | markdown"></p>
       <app-social></app-social>
     </div>
   </section>

@@ -5,9 +5,9 @@
   <div class="card-block px-2">
     <h4 class="card-title">{{driver.name}}</h4>
     <p class="card-text">Rolle: {{driver.Rolle}}</p>
-    <p class="card-text">Beschreibung: {{driver.description}}</p>
+    <p *ngIf="driver.description" class="card-text" [innerHTML]="'Beschreibung:' + driver.description | markdown"></p>
     <p class="card-text">Wohnort: {{driver.Wohnort}}</p>
-    <p *ngIf="driver.Hardware" class="card-text">Hardware: {{driver.Hardware}}</p>
+    <p *ngIf="driver.Hardware" class="card-text" [innerHTML]="'Hardware:' + driver.Hardware | markdown"></p>
     <p class="card-text">iRating: {{driver.iRating}}</p>
   </div>
 </div>
