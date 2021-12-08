@@ -13,7 +13,9 @@ export class DriversComponent implements OnInit {
   constructor(private driverService: DriverService) { }
 
   ngOnInit(): void {
-    this.driverService.getDrivers().subscribe(drivers => this.drivers = drivers);
+    this.driverService.getDrivers().subscribe(drivers => this.drivers = drivers.sort((a, b) => {
+      return (a.feature === b.feature)? 0 : a.feature? -1 : 1;
+    }));
   }
 
 }

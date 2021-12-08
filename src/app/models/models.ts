@@ -28,6 +28,7 @@ export interface Driver {
   iRating: number;
   Rolle: string;
   image: Image;
+  feature: boolean;
 }
 
 export interface Social {
