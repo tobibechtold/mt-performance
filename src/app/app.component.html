@@ -14,21 +14,21 @@
   </div>
 </header>
 <div class="section-container">
-  <a id="welcome"></a>
+  <a id="welcome" href="#welcome"></a>
   <section>
     <div class="section-content">
       <app-carousel></app-carousel>
       <p *ngIf="homepageData" [innerHTML]="this.homepageData.welcomeText | markdown"></p>
     </div>
   </section>
-  <a id="news"></a>
+  <a id="news" href="#news"></a>
   <section>
     <div class="section-content">
       <h1 class="display-4">News</h1>
       <app-news></app-news>
     </div>
   </section>
-  <a id="team"></a>
+  <a id="team" href="#team"></a>
   <section>
     <div class="section-content">
       <h1 class="display-4">Das Team</h1>
@@ -36,7 +36,7 @@
       <app-drivers></app-drivers>
     </div>
   </section>
-  <a id="sponsors"></a>
+  <a id="sponsors" href="#sponsors"></a>
   <section>
     <div class="section-content">
       <h1 class="display-4">Sponsoren</h1>
@@ -44,7 +44,7 @@
       <app-sponsor></app-sponsor>
     </div>
   </section>
-  <a id="social"></a>
+  <a id="social" href="#social"></a>
   <section>
     <div class="section-content">
       <h1 class="display-4">Social</h1>
