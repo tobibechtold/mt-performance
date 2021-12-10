@@ -1,5 +1,5 @@
 <div class="card">
-  <img class="card-img-top" src="{{'https://strapi-l8cn-f0jv.onrender.com' + article.image.url }}">
+  <img class="card-img-top" src="{{'https://strapi-l8cn-f0jv.onrender.com' + article.image.url }}" alt="{{article.image.alternativeText}}">
   <div class="card-body">
     <h5 class="card-title">{{article.title}}</h5>
     <p class="card-text" [innerHTML]="content | markdown"></p>

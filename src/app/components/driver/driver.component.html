@@ -1,6 +1,6 @@
 <div class="card flex-row flex-wrap">
   <div *ngIf="driver.image" class="card-header border-0">
-    <img src="{{'https://strapi-l8cn-f0jv.onrender.com' + driver.image.formats.thumbnail.url}}" alt="">
+    <img src="{{'https://strapi-l8cn-f0jv.onrender.com' + driver.image.formats.thumbnail.url}}" alt="{{driver.image.alternativeText}}">
   </div>
   <div class="card-block px-2">
     <h4 class="card-title">{{driver.name}}</h4>
