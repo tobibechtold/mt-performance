@@ -2,7 +2,7 @@ const shell = require('shelljs');
 
 processCmd('Copying assets to library folder', () => {
   const pathSource = './src/assets/sitemap.xml';
-  const pathDest = './dist/mt-performance/sitemap.xml';
+  const pathDest = './dist/mt-performance/browser/sitemap.xml';
   if (process.platform === 'win32') {
     return shell.cp('-R', pathSource, pathDest).code;
   }
