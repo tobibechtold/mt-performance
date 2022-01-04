@@ -1,4 +1,4 @@
-<div class="card flex-row flex-wrap">
+<div class="card flex-column flex-wrap">
   <div *ngIf="driver.image" class="card-header border-0">
     <img src="{{'https://strapi-l8cn-f0jv.onrender.com' + driver.image.formats.thumbnail.url}}" alt="{{driver.image.alternativeText}}">
   </div>
@@ -8,6 +8,6 @@
     <p *ngIf="driver.description" class="card-text" [innerHTML]="'Beschreibung: ' + driver.description | markdown"></p>
     <p class="card-text">Wohnort: {{driver.Wohnort}}</p>
     <p *ngIf="driver.Hardware" class="card-text" [innerHTML]="'Hardware: ' + driver.Hardware | markdown"></p>
-    <p class="card-text">iRating: {{driver.iRating}}</p>
+    <p *ngIf="driver.iRating" class="card-text">iRating: {{driver.iRating}}</p>
   </div>
 </div>
