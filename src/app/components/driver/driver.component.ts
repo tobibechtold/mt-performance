@@ -6,13 +6,8 @@ import {Driver} from "../../models/models";
   templateUrl: './driver.component.html',
   styleUrls: ['./driver.component.scss']
 })
-export class DriverComponent implements OnInit {
-  @Input()
-  driver: Driver;
+export class DriverComponent {
+  @Input() driver: Driver;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

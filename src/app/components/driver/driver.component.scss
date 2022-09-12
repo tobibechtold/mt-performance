@@ -1,6 +1,51 @@
-.card {
-  color: #ea5b0c;
-  padding: 8px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+.driver-card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 0.25rem;
+  color: black;
+  padding: 16px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   height: 100%;
+}
+
+.driver-card-header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.driver-image-wrapper {
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.driver-image {
+  width: 100%;
+  height: auto;
+}
+
+.driver-name {
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-text {
+  font-size: 14px;
+}
+
+.category-headline {
+  font-size: 13px;
+  font-weight: bold;
+  color: darkslategrey;
+  margin: 0;
+}
+
+@media screen and (max-width:960px) {
+  .driver-card {
+    height: auto;
+  }
 }
