@@ -9,3 +9,9 @@ app-article {
   justify-content: center;
   width: 100%
 }
+
+@media screen and (max-width:960px) {
+  app-article {
+    width: 80%;
+  }
+}
