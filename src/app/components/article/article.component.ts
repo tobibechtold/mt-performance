@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { Article } from 'src/app/models/models';
 import {ArticlesService} from "../../services/articles.service";
+import {Meta} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-article',
@@ -14,13 +15,16 @@ export class ArticleComponent implements OnInit{
   fullContent: boolean = false;
   content: string;
 
-  constructor() { }
+  constructor(private meta: Meta) { }
 
   ngOnInit(): void {
     if (!this.fullContent) {
       this.content = this.getFirstWords(this.article.content);
     } else {
       this.content = this.article.content;
+      this.meta.updateTag({property: 'og:title', content: this.article.title});
+      this.meta.updateTag({property: 'og:image', content: 'https://strapi-l8cn-f0jv.onrender.com' + this.article.image.url});
+      this.meta.updateTag({property: 'og:url', content: 'https://www.mt-performance-esport.de/news/' + this.article.id})
     }
   }
 
