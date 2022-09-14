@@ -1,5 +1,6 @@
+
 <header>
-  <div class="title">
+  <div class="title" routerLink="/">
     <div class="title-left">
       <img src="/assets/logo.png" alt="MT-Performance Logo">
       <div *ngIf="homepageData">{{this.homepageData.title}}</div>
@@ -13,50 +14,4 @@
     </div>
   </div>
 </header>
-<div class="section-container">
-  <a id="welcome" href="#welcome"></a>
-  <section>
-    <div class="section-content">
-      <app-carousel></app-carousel>
-      <p *ngIf="homepageData" [innerHTML]="this.homepageData.welcomeText | markdown"></p>
-    </div>
-  </section>
-  <a id="news" href="#news"></a>
-  <section>
-    <div class="section-content">
-      <h1 class="display-4">News</h1>
-      <app-news></app-news>
-    </div>
-  </section>
-  <a id="team" href="#team"></a>
-  <section>
-    <div class="section-content">
-      <h1 class="display-4">Das Team</h1>
-      <p *ngIf="homepageData" [innerHTML]="this.homepageData.driverText | markdown"></p>
-      <app-drivers></app-drivers>
-    </div>
-  </section>
-  <a id="sponsors" href="#sponsors"></a>
-  <section>
-    <div class="section-content">
-      <h1 class="display-4">Sponsoren</h1>
-      <p *ngIf="homepageData" [innerHTML]="this.homepageData.sponsor | markdown"></p>
-      <app-sponsor></app-sponsor>
-    </div>
-  </section>
-  <a id="social" href="#social"></a>
-  <section>
-    <div class="section-content">
-      <h1 class="display-4">Social</h1>
-      <p *ngIf="homepageData" [innerHTML]="this.homepageData.socialText | markdown"></p>
-      <app-social></app-social>
-    </div>
-  </section>
-</div>
-<footer>
-  <div id="app-footer">
-    <a href="https://github.com/tobibechtold/mt-performance" target="_blank">
-      <img src="assets/github.png" title="View this project on github.com" alt="View this project on github.com">
-    </a>
-  </div>
-</footer>
+<router-outlet></router-outlet>

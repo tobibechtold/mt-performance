@@ -10,6 +10,9 @@ import { DriversComponent } from './components/drivers/drivers.component';
 import { SponsorComponent } from './components/sponsor/sponsor.component';
 import { SocialComponent } from './components/social/social.component';
 import { MarkdownPipe } from './pipes/markdown.pipe';
+import { AppRoutingModule } from './app-routing.module';
+import { NewsDetailComponent } from './components/news-detail/news-detail.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +24,14 @@ import { MarkdownPipe } from './pipes/markdown.pipe';
     DriversComponent,
     SponsorComponent,
     SocialComponent,
-    MarkdownPipe
+    MarkdownPipe,
+    NewsDetailComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

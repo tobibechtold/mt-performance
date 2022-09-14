@@ -10,26 +10,27 @@ import {ArticlesService} from "../../services/articles.service";
 export class ArticleComponent implements OnInit{
   @Input()
   article: Article;
+  @Input()
+  fullContent: boolean = false;
   content: string;
-  showMoreToggle: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
-    this.content = this.getFirstWords(this.article.content);
+    if (!this.fullContent) {
+      this.content = this.getFirstWords(this.article.content);
+    } else {
+      this.content = this.article.content;
+    }
   }
 
   getFirstWords(text: string): string {
     return text.split(' ').slice(0, 20).join(' ') + '...';
   }
 
-  showMore() {
-    if (this.showMoreToggle) {
-      this.content = this.getFirstWords(this.article.content);
-    } else {
-      this.content = this.article.content;
-    }
-
-    this.showMoreToggle = !this.showMoreToggle;
+  getDate(date: string): string {
+    const dateObject = new Date(date);
+    return dateObject.toLocaleDateString('de-DE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
   }
 
 }

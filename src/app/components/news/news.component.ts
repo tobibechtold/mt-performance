@@ -14,16 +14,10 @@ export class NewsComponent implements OnInit {
   constructor(private articleService: ArticlesService) { }
 
   ngOnInit(): void {
-    this.articleService.getArticles().subscribe(data => this.articles = data)
-  }
-
-  sortByDate(articles: Array<Article>): Array<Article> {
-    return this.articles.sort((a, b) => {
+    this.articleService.getArticles().subscribe(data => this.articles = data.sort((a, b) => {
       const aDate = new Date(a.published_at);
       const bDate = new Date(b.published_at);
-      console.log(aDate);
-      return aDate.getTime() - bDate.getTime();
-    })
+      return bDate.getTime() - aDate.getTime();
+    }));
   }
-
 }
