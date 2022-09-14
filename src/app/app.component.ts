@@ -35,6 +35,7 @@ export class AppComponent implements OnInit {
       if (route.snapshot.paramMap.has('id')) {
         const id = Number(route.snapshot.paramMap.get('id'));
         this.articleService.getArticle(id).subscribe(article => {
+          console.log('updateing from app comp');
           this.seoService.updateTitle(article.title);
           this.seoService.updateMetaTags([
               {property: 'og:title', content: article.title},

@@ -28,6 +28,12 @@ export class NewsDetailComponent implements OnInit {
         ]
       );
     });
+
+    this.seoService.updateMetaTags([
+        {property: 'og:title', content: 'test112'},
+      ]
+    );
+
   }
 
 }

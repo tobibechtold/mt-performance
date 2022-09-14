@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
     this.seoService.updateMetaTags([
       {property: 'og:title', content: 'MT-Performance eSport'},
       {property: 'og:url', content: 'https://www.mt-performance-esport.de/'}
-    ])
+    ]);
     this.homepageService.homepageData().subscribe(data => {
       this.homepageData = data;
     });
