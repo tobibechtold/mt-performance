@@ -22,9 +22,6 @@ export class ArticleComponent implements OnInit{
       this.content = this.getFirstWords(this.article.content);
     } else {
       this.content = this.article.content;
-      this.meta.updateTag({property: 'og:title', content: this.article.title});
-      this.meta.updateTag({property: 'og:image', content: 'https://strapi-l8cn-f0jv.onrender.com' + this.article.image.url});
-      this.meta.updateTag({property: 'og:url', content: 'https://www.mt-performance-esport.de/#/news/' + this.article.id})
     }
   }
 

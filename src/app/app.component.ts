@@ -20,9 +20,4 @@ export class AppComponent implements OnInit {
       this.homepageData = data;
     });
   }
-
-  scrollTo(anchor: string) {
-    this.router.navigate([], { fragment: anchor });
-  }
-
 }
