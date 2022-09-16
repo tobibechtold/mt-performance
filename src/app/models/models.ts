@@ -57,6 +57,7 @@ export interface Image {
   formats?: {
     small?: ImageFormat;
     medium?: ImageFormat;
+    large?: ImageFormat;
     thumbnail?: ImageFormat;
   }
   hash?: string;

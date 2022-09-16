@@ -18,7 +18,7 @@ export class CarouselComponent implements OnInit {
   }
 
   prependUrl(image: Image): string {
-    return 'https://strapi-l8cn-f0jv.onrender.com' + image.url;
+    return 'https://strapi-l8cn-f0jv.onrender.com' + image.formats.large.url;
   }
 
 }

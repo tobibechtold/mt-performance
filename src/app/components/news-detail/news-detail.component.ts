@@ -18,10 +18,11 @@ export class NewsDetailComponent {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.articleService.getArticle(id).subscribe(article => {
       this.article = article;
+      console.log(article);
       this.seoService.updateTitle(this.article.title + ' - MT Performance eSport');
       this.seoService.updateMetaTags([
         {property: 'og:title', content: this.article.title},
-        {property: 'og:image', content: 'https://strapi-l8cn-f0jv.onrender.com' + this.article.image.url},
+        {property: 'og:image', content: 'https://strapi-l8cn-f0jv.onrender.com' + this.article.image.formats.medium.url},
         {property: 'og:url', content: 'https://www.mt-performance-esport.de/news/' + this.article.id},
       ]);
     });

@@ -1,7 +1,9 @@
 <div class="card">
-  <img class="card-img-top" routerLink="news/{{article.id}}" src="{{'https://strapi-l8cn-f0jv.onrender.com' + article.image.url }}" alt="{{article.image.alternativeText}}">
+  <img *ngIf="!fullContent" class="card-img-top clickable" routerLink="news/{{article.id}}" src="{{'https://strapi-l8cn-f0jv.onrender.com' + article.image.formats.medium.url }}" alt="{{article.image.alternativeText}}">
+  <img *ngIf="fullContent" class="card-img-top" src="{{'https://strapi-l8cn-f0jv.onrender.com' + article.image.formats.medium.url }}" alt="{{article.image.alternativeText}}">
   <div class="card-body">
-    <h5 class="card-title" routerLink="news/{{article.id}}">{{article.title}}</h5>
+    <h5 *ngIf="!fullContent" class="card-title clickable" routerLink="news/{{article.id}}">{{article.title}}</h5>
+    <h5 *ngIf="fullContent" class="card-title" >{{article.title}}</h5>
     <p class="text-muted">{{getDate(article.published_at)}}</p>
     <p class="card-text" [innerHTML]="content | markdown"></p>
     <div *ngIf="!fullContent" class="show-more" routerLink="news/{{article.id}}">Weiterlesen...</div>
