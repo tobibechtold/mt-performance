@@ -1,5 +1,5 @@
 <div class="card">
-  <img *ngIf="!fullContent" class="card-img-top clickable" routerLink="news/{{article.id}}" src="{{'https://strapi-l8cn-f0jv.onrender.com' + article.image.formats.medium.url }}" alt="{{article.image.alternativeText}}">
+  <img *ngIf="!fullContent" class="card-img-top clickable" routerLink="news/{{article.id}}" src="{{'https://strapi-l8cn-f0jv.onrender.com' + article.image.formats.small.url }}" alt="{{article.image.alternativeText}}">
   <img *ngIf="fullContent" class="card-img-top" src="{{'https://strapi-l8cn-f0jv.onrender.com' + article.image.formats.medium.url }}" alt="{{article.image.alternativeText}}">
   <div class="card-body">
     <h5 *ngIf="!fullContent" class="card-title clickable" routerLink="news/{{article.id}}">{{article.title}}</h5>
