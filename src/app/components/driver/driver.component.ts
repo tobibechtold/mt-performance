@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Driver} from "../../models/models";
+import {Driver2} from "../../services/contentful.service";
 
 @Component({
   selector: 'app-driver',
@@ -7,7 +7,7 @@ import {Driver} from "../../models/models";
   styleUrls: ['./driver.component.scss']
 })
 export class DriverComponent {
-  @Input() driver: Driver;
+  @Input() driver: Driver2;
 
   constructor() { }
 }
