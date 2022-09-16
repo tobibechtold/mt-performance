@@ -5,9 +5,7 @@ import {NewsDetailComponent} from "./components/news-detail/news-detail.componen
 import {HomeComponent} from "./components/home/home.component";
 
 const routes: Routes = [
-  {
-    path: 'news/:id', component: NewsDetailComponent,
-  },
+  { path: 'news/:id', component: NewsDetailComponent },
   { path: '', component: HomeComponent },
 ];
 
@@ -15,7 +13,10 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes, {useHash: true}),
+    RouterModule.forRoot(routes, {
+      useHash: false,
+      initialNavigation: 'enabledBlocking'
+    }),
   ],
   exports: [RouterModule]
 })
