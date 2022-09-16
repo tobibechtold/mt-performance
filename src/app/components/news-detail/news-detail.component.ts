@@ -22,7 +22,7 @@ export class NewsDetailComponent {
       this.seoService.updateMetaTags([
         {property: 'og:title', content: this.article.title},
         {property: 'og:image', content: 'https://strapi-l8cn-f0jv.onrender.com' + this.article.image.url},
-        {property: 'og:url', content: 'https://www.mt-performance-esport.de/#/news/' + this.article.id},
+        {property: 'og:url', content: 'https://www.mt-performance-esport.de/news/' + this.article.id},
       ]);
     });
   }

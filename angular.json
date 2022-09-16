@@ -151,7 +151,10 @@
           "builder": "@nguniversal/builders:prerender",
           "options": {
             "routes": [
-              "/"
+              "/",
+              "/news/5",
+              "/news/4",
+              "/news/1"
             ]
           },
           "configurations": {
