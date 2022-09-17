@@ -1,5 +1,7 @@
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Asset, createClient, Entry} from "contentful";
+import {Observable} from "rxjs";
 
 const CONFIG = {
   space: 'c49ytttuzq07',
@@ -56,7 +58,7 @@ export class ContentfulService {
     accessToken: CONFIG.accessToken
   });
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getDrivers(query?: object): Promise<Entry<Driver>[]> {
     return this.cdaClient.getEntries(Object.assign({
@@ -76,8 +78,12 @@ export class ContentfulService {
       .then(res => res.items);
   }
 
-  getArticle(id: string, query?: object): Promise<Entry<Article>> {
-    return this.cdaClient.getEntry(id, query);
+  getArticle(id: string, query?: object): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${CONFIG.accessToken}`
+    })
+    return this.http.get<any>('https://cdn.contentful.com/spaces/c49ytttuzq07/environments/master/entries?content_type=article&include=10', {headers: headers});
   }
 
   getHome(query?: object): Promise<Entry<Home>> {
