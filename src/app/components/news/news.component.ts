@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Article, ContentfulService} from "../../services/contentful.service";
-import {Entry} from "contentful";
+import {Article} from "../../models/models";
+import {ArticlesService} from "../../services/articles.service";
 
 @Component({
   selector: 'app-news',
@@ -9,18 +9,15 @@ import {Entry} from "contentful";
 })
 export class NewsComponent implements OnInit {
 
-  articles: Entry<Article>[] = [];
+  articles: Article[] = [];
 
-  constructor(private contentful: ContentfulService) { }
+  constructor(private articleService: ArticlesService) { }
 
   ngOnInit(): void {
-    this.contentful.getArticles()
-      .then(result => {
-        this.articles = result.sort((a, b) => {
-          const aDate = new Date(a.sys.createdAt);
-          const bDate = new Date(b.sys.createdAt);
-          return bDate.getTime() - aDate.getTime();
-        });
-      })
+    this.articleService.getArticles().subscribe(data => this.articles = data.sort((a, b) => {
+      const aDate = new Date(a.published_at);
+      const bDate = new Date(b.published_at);
+      return bDate.getTime() - aDate.getTime();
+    }));
   }
 }

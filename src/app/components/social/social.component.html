@@ -1,10 +1,10 @@
 <div class="social-grid">
   <div class="social-channel" *ngFor="let social of socials">
-    <a href="{{social.fields.link}}" target="_blank">
+    <a href="{{social.link}}" target="_blank">
       <svg class="social-icon" width="32" height="32" fill="currentColor">
-        <use [attr.xlink:href]="'assets/icons/bootstrap-icons.svg#' + social.fields.channel.toLowerCase()"/>
+        <use [attr.xlink:href]="'assets/icons/bootstrap-icons.svg#' + social.channel.toLowerCase()"/>
       </svg>
-      <div>{{social.fields.title}}</div>
+      <div>{{social.title}}</div>
     </a>
   </div>
 </div>

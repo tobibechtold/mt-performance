@@ -1,11 +1,11 @@
 <div class="card">
-  <img *ngIf="!fullContent" class="card-img-top clickable" routerLink="news/{{article.sys.id}}" src="{{article.fields.image.fields.file.url + '?fm=webp&w=600'}}" alt="{{article.fields.image.fields.file.fileName}}">
-  <img *ngIf="fullContent" class="card-img-top" src="{{article.fields.image.fields.file.url + '?fm=webp&w=900' }}" alt="{{article.fields.image.fields.file.fileName}}">
+  <img *ngIf="!fullContent" class="card-img-top clickable" routerLink="news/{{article.id}}" src="{{'https://strapi-l8cn-f0jv.onrender.com' + article.image.formats.small.url }}" alt="{{article.image.alternativeText}}">
+  <img *ngIf="fullContent" class="card-img-top" src="{{'https://strapi-l8cn-f0jv.onrender.com' + article.image.formats.medium.url }}" alt="{{article.image.alternativeText}}">
   <div class="card-body">
-    <h5 *ngIf="!fullContent" class="card-title clickable" routerLink="news/{{article.sys.id}}">{{article.fields.title}}</h5>
-    <h5 *ngIf="fullContent" class="card-title" >{{article.fields.title}}</h5>
-    <p class="text-muted">{{getDate(article.sys.createdAt)}}</p>
+    <h5 *ngIf="!fullContent" class="card-title clickable" routerLink="news/{{article.id}}">{{article.title}}</h5>
+    <h5 *ngIf="fullContent" class="card-title" >{{article.title}}</h5>
+    <p class="text-muted">{{getDate(article.published_at)}}</p>
     <p class="card-text" [innerHTML]="content | markdown"></p>
-    <div *ngIf="!fullContent" class="show-more" routerLink="news/{{article.sys.id}}">Weiterlesen...</div>
+    <div *ngIf="!fullContent" class="show-more" routerLink="news/{{article.id}}">Weiterlesen...</div>
   </div>
 </div>

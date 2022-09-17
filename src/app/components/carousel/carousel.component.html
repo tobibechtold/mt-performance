@@ -1,10 +1,10 @@
-<div id="slideshow" class="carousel slide" data-ride="carousel" *ngIf="carousel && carousel.images">
+<div id="slideshow" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li *ngFor="let image of carousel.images; let i = index" data-target="#slideshow" [attr.data-slide-to]="i" [class.active]="i === 0"></li>
+    <li *ngFor="let image of images; let i = index" data-target="#slideshow" [attr.data-slide-to]="i" [class.active]="i === 0"></li>
   </ol>
   <div class="carousel-inner">
-    <div *ngFor="let image of carousel.images; let i = index" class="carousel-item" [class.active]="i === 0">
-      <img [src]="image.fields.file.url + '?fm=webp&w=1168&h=657'" class="d-block w-100" alt="{{image.fields.file.fileName}}">
+    <div *ngFor="let image of images; let i = index" class="carousel-item" [class.active]="i === 0">
+      <img [src]="prependUrl(image)" class="d-block w-100" alt="{{image.alternativeText}}">
     </div>
   </div>
 </div>

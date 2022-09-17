@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {HomepageService} from "../../services/homepage.service";
+import {HomepageData} from "../../models/models";
 import { SeoService } from 'src/app/services/seo.service';
-import {ContentfulService, Home} from 'src/app/services/contentful.service';
-import {Entry} from "contentful";
 
 @Component({
   selector: 'app-home',
@@ -10,9 +10,9 @@ import {Entry} from "contentful";
 })
 export class HomeComponent implements OnInit {
 
-  home: Entry<Home>;
+  homepageData: HomepageData;
 
-  constructor(private seoService: SeoService, private contentful: ContentfulService) { }
+  constructor(public homepageService: HomepageService, private seoService: SeoService) { }
 
   ngOnInit(): void {
     this.seoService.updateTitle('MT-Performance eSport')
@@ -20,8 +20,9 @@ export class HomeComponent implements OnInit {
       {property: 'og:title', content: 'MT-Performance eSport'},
       {property: 'og:url', content: 'https://www.mt-performance-esport.de/'}
     ]);
-    this.contentful.getHome()
-      .then(home => this.home = home)
+    this.homepageService.homepageData().subscribe(data => {
+      this.homepageData = data;
+    });
   }
 
 }

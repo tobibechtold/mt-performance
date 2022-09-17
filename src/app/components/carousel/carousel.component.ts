@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Carousel, ContentfulService} from "../../services/contentful.service";
+import {Article, Image} from "../../models/models";
+import {CarouselService} from "../../services/carousel.service";
 
 @Component({
   selector: 'app-carousel',
@@ -8,11 +9,16 @@ import {Carousel, ContentfulService} from "../../services/contentful.service";
 })
 export class CarouselComponent implements OnInit {
 
-  carousel: Carousel;
+  images: Image[] = [];
 
-  constructor(private contentful: ContentfulService) { }
+  constructor(private carouselService: CarouselService) { }
 
   ngOnInit(): void {
-    this.contentful.getCarousel().then(result => this.carousel = result.fields);
+    this.carouselService.getImages().subscribe(data => this.images = data.images);
   }
+
+  prependUrl(image: Image): string {
+    return 'https://strapi-l8cn-f0jv.onrender.com' + image.formats.large.url;
+  }
+
 }

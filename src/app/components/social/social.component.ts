@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Entry} from "contentful";
-import {ContentfulService, Social} from "../../services/contentful.service";
+import {SocialService} from "../../services/social.service";
+import {Social} from "../../models/models";
 
 @Component({
   selector: 'app-social',
@@ -8,13 +8,12 @@ import {ContentfulService, Social} from "../../services/contentful.service";
   styleUrls: ['./social.component.scss']
 })
 export class SocialComponent implements OnInit {
-  socials: Array<Entry<Social>> = [];
+  socials: Array<Social> = [];
 
-  constructor(private contentful: ContentfulService) { }
+  constructor(private socialService: SocialService) { }
 
   ngOnInit(): void {
-    this.contentful.getSocials()
-      .then(result => this.socials = result);
+    this.socialService.getSocials().subscribe(data => this.socials = data);
   }
 
 }
