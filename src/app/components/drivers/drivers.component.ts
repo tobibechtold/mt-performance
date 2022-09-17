@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DriverService} from "../../services/driver.service";
-import {Driver} from "../../models/models";
+import {ContentfulService, Driver} from 'src/app/services/contentful.service';
+import {Entry} from "contentful";
 
 @Component({
   selector: 'app-drivers',
@@ -8,14 +8,15 @@ import {Driver} from "../../models/models";
   styleUrls: ['./drivers.component.scss']
 })
 export class DriversComponent implements OnInit {
-  drivers: Array<Driver>;
+  drivers: Array<Entry<Driver>>
 
-  constructor(private driverService: DriverService) { }
+  constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit(): void {
-    this.driverService.getDrivers().subscribe(drivers => this.drivers = drivers.sort((a, b) => {
-      return (a.feature === b.feature)? 0 : a.feature? -1 : 1;
-    }));
+    this.contentfulService.getDrivers().then((drivers) => {
+      this.drivers = drivers.sort((a, b) => {
+        return (a.fields.feature === b.fields.feature)? 0 : a.fields.feature? -1 : 1;
+      });
+    });
   }
-
 }

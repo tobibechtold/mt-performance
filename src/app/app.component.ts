@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {HomepageService } from './services/homepage.service';
-import {HomepageData} from "./models/models";
+import {ContentfulService, Home} from "./services/contentful.service";
+import {Entry} from "contentful";
 
 @Component({
   selector: 'app-root',
@@ -9,14 +9,13 @@ import {HomepageData} from "./models/models";
 })
 export class AppComponent implements OnInit {
   title = 'mt-performance';
-  homepageData: HomepageData;
+  home: Entry<Home>;
 
-  constructor(private homepageService: HomepageService) {
+  constructor(private contentful: ContentfulService) {
   }
 
   ngOnInit(): void {
-    this.homepageService.homepageData().subscribe(data => {
-      this.homepageData = data;
-    });
+    this.contentful.getHome()
+      .then(home => this.home = home);
   }
 }

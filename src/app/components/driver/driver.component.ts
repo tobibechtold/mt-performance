@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Driver} from "../../models/models";
+import {Driver} from "../../services/contentful.service";
 
 @Component({
   selector: 'app-driver',

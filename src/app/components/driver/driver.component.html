@@ -1,19 +1,19 @@
 <div class="driver-card">
   <div class="driver-card-header">
     <div class="driver-image-wrapper">
-      <img class="driver-image" src="{{'https://strapi-l8cn-f0jv.onrender.com' + driver.image.formats.thumbnail.url}}" alt="{{driver.image.alternativeText}}">
+      <img class="driver-image" src="{{driver.image.fields.file.url + '?fm=webp&w=100'}}" alt="{{driver.image.fields.file.fileName}}">
     </div>
     <div class="driver-name-wrapper">
       <p class="driver-name">{{driver.name}}</p>
-      <p class="driver-role category-headline">{{driver.Rolle}}</p>
+      <p class="driver-role category-headline">{{driver.rolle}}</p>
     </div>
   </div>
   <div class="driver-card-body">
-    <p class="category-headline" *ngIf="driver.description">Beschreibung</p>
-    <p *ngIf="driver.description" class="card-text" [innerHTML]="driver.description | markdown"></p>
-    <p class="category-headline" *ngIf="driver.Wohnort">Wohnort</p>
-    <p class="card-text">{{driver.Wohnort}}</p>
-    <p class="category-headline" *ngIf="driver.Hardware">Hardware</p>
-    <p *ngIf="driver.Hardware" class="card-text" [innerHTML]="driver.Hardware | markdown"></p>
+    <p class="category-headline" *ngIf="driver.descriptionText">Beschreibung</p>
+    <p *ngIf="driver.descriptionText" class="card-text" [innerHTML]="driver.descriptionText | markdown"></p>
+    <p class="category-headline" *ngIf="driver.wohnort">Wohnort</p>
+    <p class="card-text">{{driver.wohnort}}</p>
+    <p class="category-headline" *ngIf="driver.hardwareText">Hardware</p>
+    <p *ngIf="driver.hardwareText" class="card-text" [innerHTML]="driver.hardwareText | markdown"></p>
   </div>
 </div>

@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { Article } from 'src/app/models/models';
-import {ArticlesService} from "../../services/articles.service";
-import {Meta} from "@angular/platform-browser";
+import {Article} from "../../services/contentful.service";
+import {Entry} from "contentful";
 
 @Component({
   selector: 'app-article',
@@ -9,19 +8,17 @@ import {Meta} from "@angular/platform-browser";
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit{
-  @Input()
-  article: Article;
-  @Input()
-  fullContent: boolean = false;
+  @Input() article: Entry<Article>;
+  @Input() fullContent: boolean = false;
   content: string;
 
-  constructor(private meta: Meta) { }
+  constructor() { }
 
   ngOnInit(): void {
     if (!this.fullContent) {
-      this.content = this.getFirstWords(this.article.content);
+      this.content = this.getFirstWords(this.article.fields.body);
     } else {
-      this.content = this.article.content;
+      this.content = this.article.fields.body;
     }
   }
 

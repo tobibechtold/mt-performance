@@ -3,7 +3,7 @@
   <div class="title" routerLink="/">
     <div class="title-left">
       <img src="/assets/logo.png" alt="MT-Performance Logo">
-      <div *ngIf="homepageData">{{this.homepageData.title}}</div>
+      <div *ngIf="home">{{this.home.fields.title}}</div>
     </div>
     <div class="navigation">
       <a href="#welcome">Willkommen</a>

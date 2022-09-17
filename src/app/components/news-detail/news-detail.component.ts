@@ -1,9 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Article} from "../../models/models";
+import {Component} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {ArticlesService} from 'src/app/services/articles.service';
 import {SeoService} from "../../services/seo.service";
-import {Meta, Title} from "@angular/platform-browser";
+import {Article, ContentfulService} from 'src/app/services/contentful.service';
+import {Entry} from "contentful";
 
 @Component({
   selector: 'app-news-detail',
@@ -12,19 +11,23 @@ import {Meta, Title} from "@angular/platform-browser";
 })
 export class NewsDetailComponent {
 
-  article: Article;
+  article: Entry<Article>;
 
-  constructor(private route: ActivatedRoute, private articleService: ArticlesService, private seoService: SeoService) {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.articleService.getArticle(id).subscribe(article => {
-      this.article = article;
-      console.log(article);
-      this.seoService.updateTitle(this.article.title + ' - MT Performance eSport');
-      this.seoService.updateMetaTags([
-        {property: 'og:title', content: this.article.title},
-        {property: 'og:image', content: 'https://strapi-l8cn-f0jv.onrender.com' + this.article.image.formats.medium.url},
-        {property: 'og:url', content: 'https://www.mt-performance-esport.de/news/' + this.article.id},
-      ]);
-    });
+  constructor(private route: ActivatedRoute, private seoService: SeoService, private contentful: ContentfulService) {
+    const id = this.route.snapshot.paramMap.get('id');
+
+    this.contentful.getArticle(String(id))
+      .then(article => {
+        this.article = article;
+        this.seoService.updateTitle(this.article.fields.title + ' - MT Performance eSport');
+        this.seoService.updateMetaTags([
+          {property: 'og:title', content: this.article.fields.title},
+          {
+            property: 'og:image',
+            content: this.article.fields.image.fields.file.url + '?fm=webp&w=600'
+          },
+          {property: 'og:url', content: 'https://www.mt-performance-esport.de/news/' + this.article.sys.id},
+        ]);
+      });
   }
 }
