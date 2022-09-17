@@ -16,7 +16,7 @@ export class NewsDetailComponent {
   constructor(private route: ActivatedRoute, private seoService: SeoService, private contentful: ContentfulService) {
     const id = this.route.snapshot.paramMap.get('id');
 
-    this.contentful.getArticle(String(id))
+    this.contentful.getArticle(id)
       .then(article => {
         this.article = article;
         this.seoService.updateTitle(this.article.fields.title + ' - MT Performance eSport');
