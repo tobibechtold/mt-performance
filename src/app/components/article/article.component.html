@@ -1,5 +1,5 @@
 <div class="card">
-  <img *ngIf="!fullContent" class="card-img-top clickable" routerLink="news/{{article.sys.id}}" src="{{article.fields.image.fields.file.url + '?fm=webp&w=300'}}" alt="{{article.fields.image.fields.file.fileName}}">
+  <img *ngIf="!fullContent" class="card-img-top clickable" routerLink="news/{{article.sys.id}}" src="{{article.fields.image.fields.file.url + '?fm=webp&w=600'}}" alt="{{article.fields.image.fields.file.fileName}}">
   <img *ngIf="fullContent" class="card-img-top" src="{{article.fields.image.fields.file.url + '?fm=webp&w=900' }}" alt="{{article.fields.image.fields.file.fileName}}">
   <div class="card-body">
     <h5 *ngIf="!fullContent" class="card-title clickable" routerLink="news/{{article.sys.id}}">{{article.fields.title}}</h5>
