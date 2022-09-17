@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {SponsorService} from 'src/app/services/sponsor.service';
-import {Sponsor} from "../../models/models";
+import {ContentfulService, Sponsor} from "../../services/contentful.service";
+import {Entry} from "contentful";
 
 @Component({
   selector: 'app-sponsor',
@@ -8,13 +8,14 @@ import {Sponsor} from "../../models/models";
   styleUrls: ['./sponsor.component.scss']
 })
 export class SponsorComponent implements OnInit {
-  sponsors: Array<Sponsor> = [];
+  sponsors: Array<Entry<Sponsor>> = [];
 
-  constructor(private sponsorService: SponsorService) {
+  constructor(private contentful: ContentfulService) {
   }
 
   ngOnInit(): void {
-    this.sponsorService.getSponsors().subscribe(data => this.sponsors = data);
+    this.contentful.getSponsors()
+      .then(result => this.sponsors = result);
   }
 
 }

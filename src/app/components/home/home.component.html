@@ -3,7 +3,7 @@
   <section>
     <div class="section-content">
       <app-carousel></app-carousel>
-      <p *ngIf="homepageData" [innerHTML]="this.homepageData.welcomeText | markdown"></p>
+      <p *ngIf="home" [innerHTML]="this.home.fields.welcome | markdown"></p>
     </div>
   </section>
   <a id="news" href="#news"></a>
@@ -17,7 +17,7 @@
   <section>
     <div class="section-content">
       <h1 class="display-4">Das Team</h1>
-      <p *ngIf="homepageData" [innerHTML]="this.homepageData.driverText | markdown"></p>
+      <p *ngIf="home" [innerHTML]="this.home.fields.driver | markdown"></p>
       <app-drivers></app-drivers>
     </div>
   </section>
@@ -25,7 +25,7 @@
   <section>
     <div class="section-content">
       <h1 class="display-4">Sponsoren</h1>
-      <p *ngIf="homepageData" [innerHTML]="this.homepageData.sponsor | markdown"></p>
+      <p *ngIf="home" [innerHTML]="this.home.fields.sponsorText | markdown"></p>
       <app-sponsor></app-sponsor>
     </div>
   </section>
@@ -33,7 +33,7 @@
   <section>
     <div class="section-content">
       <h1 class="display-4">Social</h1>
-      <p *ngIf="homepageData" [innerHTML]="this.homepageData.socialText | markdown"></p>
+      <p *ngIf="home" [innerHTML]="this.home.fields.social | markdown"></p>
       <app-social></app-social>
     </div>
   </section>
