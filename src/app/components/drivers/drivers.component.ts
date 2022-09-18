@@ -14,9 +14,13 @@ export class DriversComponent implements OnInit {
 
   ngOnInit(): void {
     this.contentfulService.getDrivers().then((drivers) => {
-      this.drivers = drivers.sort((a, b) => {
-        return (a.fields.feature === b.fields.feature)? 0 : a.fields.feature? -1 : 1;
-      });
+      this.drivers = drivers
+        .sort((a, b) => {
+          return a.fields.name.localeCompare(b.fields.name);
+        })
+        .sort((a, b) => {
+          return (a.fields.feature === b.fields.feature)? 0 : a.fields.feature? -1 : 1;
+        });
     });
   }
 }
