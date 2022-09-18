@@ -13,6 +13,8 @@ import {DOCUMENT} from "@angular/common";
 export class NewsDetailComponent implements OnInit {
 
   article: Entry<Article>;
+  error: boolean = false;
+  loading: boolean = true;
 
   constructor(@Inject(DOCUMENT) private dom: any, private route: ActivatedRoute, private seoService: SeoService, private contentful: ContentfulService) {}
 
@@ -23,6 +25,11 @@ export class NewsDetailComponent implements OnInit {
     this.contentful.getArticle(id)
       .subscribe(article => {
         this.article = article.items.filter((item: any) => item.sys.id === id)[0];
+        if (!this.article) {
+          this.error = true;
+          this.loading = false;
+          return;
+        }
         this.article.fields.image = article.includes.Asset.filter((item: any) => item.sys.id === this.article.fields.image.sys.id)[0];
         this.seoService.updateTitle(this.article.fields.title + ' - MT Performance eSport');
         if (element) {
@@ -38,6 +45,10 @@ export class NewsDetailComponent implements OnInit {
           },
           {property: 'og:url', content: 'https://www.mt-performance-esport.de/news/' + this.article.sys.id},
         ]);
+        this.loading = false;
+      }, error => {
+        this.error = true;
+        this.loading = false;
       });
   }
 }

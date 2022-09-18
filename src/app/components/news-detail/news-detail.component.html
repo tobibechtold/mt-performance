@@ -1,3 +1,19 @@
-<div class="content">
+<div *ngIf="!article && loading && !error" class="loading-container">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden"></span>
+  </div>
+</div>
+
+
+<div *ngIf="!article && error && !loading" class="article-not-found">
+  <svg class="social-icon" width="128" height="128" fill="currentColor">
+    <use [attr.xlink:href]="'assets/icons/bootstrap-icons.svg#wifi-off'"/>
+  </svg>
+  <h1>404</h1>
+  <h5>Der von ihnen gesuchte Artikel wurde leider nicht gefunden.</h5>
+  <a href="/" routerLink="/" class="back-button">Zur Startseite zurückkehren</a>
+</div>
+
+<div *ngIf="article" class="content">
   <app-article *ngIf="article" [article]="article" [fullContent]="true"></app-article>
 </div>
