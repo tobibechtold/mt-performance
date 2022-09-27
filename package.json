@@ -10,7 +10,7 @@
     "dev:ssr": "ng run mt-performance:serve-ssr",
     "serve:ssr": "node dist/mt-performance/server/main.js",
     "build:ssr": "ng build && ng run mt-performance:server",
-    "prerender": "ng run mt-performance:prerender && node copySitemap.js"
+    "prerender": "ng run mt-performance:prerender && node copySitemap.js && node copyRedirects.js"
   },
   "private": true,
   "dependencies": {
