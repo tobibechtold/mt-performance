@@ -24,7 +24,7 @@ export class NewsDetailComponent implements OnInit {
 
     this.contentful.getArticle(id)
       .subscribe(article => {
-        this.article = article.items.filter((item: any) => item.sys.id === id)[0];
+        this.article = article.items.filter((item: any) => item.sys.id.toLowerCase() === id.toLowerCase())[0];
         if (!this.article) {
           this.error = true;
           this.loading = false;
