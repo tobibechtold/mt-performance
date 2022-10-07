@@ -8,7 +8,7 @@
       <h5 class="card-title clickable">{{article.fields.title}}</h5>
     </a>
     <h5 *ngIf="fullContent" class="card-title" >{{article.fields.title}}</h5>
-    <p class="text-muted">{{getDate(article.sys.createdAt)}}</p>
+    <p class="text-muted">{{getDate(article.fields.publishDate)}}</p>
     <p class="card-text" [innerHTML]="content | markdown"></p>
     <a *ngIf="!fullContent" href="{{'news/' + article.sys.id}}" routerLink="news/{{article.sys.id}}">
       <div class="show-more">Weiterlesen...</div>

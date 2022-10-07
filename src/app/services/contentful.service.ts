@@ -26,6 +26,7 @@ export interface Article {
   title?: string;
   image?: Asset;
   body?: string;
+  publishDate?: string;
 }
 
 export interface Home {
