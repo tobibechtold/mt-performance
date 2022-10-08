@@ -1,10 +1,11 @@
-
 <header>
-  <div class="title" routerLink="/">
-    <div class="title-left">
-      <img src="/assets/logo.png" alt="MT-Performance Logo">
-      <div *ngIf="home">{{this.home.fields.title}}</div>
-    </div>
+  <div class="title">
+    <a href="/" routerLink="/">
+      <div class="title-left">
+        <img src="/assets/logo.png" alt="MT-Performance Logo">
+        <div class="title-caption" *ngIf="home">{{this.home.fields.title}}</div>
+      </div>
+    </a>
     <div class="navigation">
       <a href="#welcome">Willkommen</a>
       <a href="#news">News</a>
