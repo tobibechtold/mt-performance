@@ -2,7 +2,7 @@
   <a *ngIf="!fullContent" href="{{'news/' + article.sys.id}}" routerLink="news/{{article.sys.id}}">
     <img class="card-img-top clickable" src="{{article.fields.image.fields.file.url + '?fm=webp&w=600'}}" alt="{{article.fields.image.fields.file.fileName}}">
   </a>
-  <img *ngIf="fullContent" class="card-img-top" src="{{article.fields.image.fields.file.url + '?fm=webp&w=900' }}" alt="{{article.fields.image.fields.file.fileName}}">
+  <img *ngIf="fullContent" class="card-img-top" src="{{article.fields.image.fields.file.url + '?fm=webp&w=1200' }}" alt="{{article.fields.image.fields.file.fileName}}">
   <div class="card-body">
     <a *ngIf="!fullContent" href="{{'news/' + article.sys.id}}" routerLink="news/{{article.sys.id}}">
       <h5 class="card-title clickable">{{article.fields.title}}</h5>

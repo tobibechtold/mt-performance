@@ -41,7 +41,7 @@ export class NewsDetailComponent implements OnInit {
           {property: 'og:title', content: this.article.fields.title},
           {
             property: 'og:image',
-            content: this.article.fields.image.fields.file.url + '?fm=webp&w=600'
+            content: this.article.fields.image.fields.file.url + '?fm=webp&w=900'
           },
           {property: 'og:url', content: 'https://www.mt-performance-esport.de/news/' + this.article.sys.id},
         ]);
