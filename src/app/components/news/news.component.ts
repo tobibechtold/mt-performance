@@ -17,8 +17,8 @@ export class NewsComponent implements OnInit {
     this.contentful.getArticles()
       .then(result => {
         this.articles = result.sort((a, b) => {
-          const aDate = new Date(a.sys.createdAt);
-          const bDate = new Date(b.sys.createdAt);
+          const aDate = new Date(a.fields.publishDate);
+          const bDate = new Date(b.fields.publishDate);
           return bDate.getTime() - aDate.getTime();
         });
       })
